@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="PokemonApp">
+	<head>
+		<meta charset="utf-8">
+		<title>My Pokemon App</title>
+		<script src="assets/bower_components/angular/angular.js"></script>
+		<script src="assets/bower_components/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+	</head>
+	<body>
+		<header>
+	    <h1>Pokemon Game Header</h1>
+		</header>
+		<div ng-view></div>
+		<!-- For testing purposes -->
+		<input ng-model="input.pokemon">
+		<div>Hello {{input.pokemon}}</div>
+	</body>
+</html>

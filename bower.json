@@ -1,0 +1,9 @@
+{
+	"name": "Pokemon-Game-AngularJS",
+	"description": "A simple pokemon game to understand every component of AngularJS",
+	"version": "0.0.0",
+	"dependencies": {
+		"angular": "~1.4.0",
+		"angular-route": "~1.4.0"
+	}
+}
