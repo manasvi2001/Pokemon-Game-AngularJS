@@ -1,5 +1,5 @@
-var app = angular.module('PokemonApp', ['ngRoute']);
+var app = angular.module('PokemonApp', ['ngRoute', 'PokemonApp.login']);
 
 app.config(['$routeProvider', function($routeProvider) {
-	$routeProvider.otherwise({redirectTo: '/'});
+	$routeProvider.otherwise({redirectTo: '/login'});
 }]);
