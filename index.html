@@ -3,18 +3,18 @@
 	<head>
 		<meta charset="utf-8">
 		<title>My Pokemon App</title>
+		<link rel="stylesheet" href="assets/css/style.css">
 		<script src="assets/bower_components/angular/angular.js"></script>
 		<script src="assets/bower_components/angular-route/angular-route.js"></script>
 		<script type="text/javascript" src="app/app.js"></script>
 		<script type="text/javascript" src="app/components/login/login.js"></script>
+		<script type="text/javascript" src="app/components/signup/signup.js"></script>
+		<script type="text/javascript" src="app/components/game/game.js"></script>
 	</head>
 	<body>
-		<header>
-	    <h1>Pokemon Game Header</h1>
+		<header class="header-bar" align="center">
+	    <img class="header-image" src="assets/img/pokemon.png">
 		</header>
 		<div ng-view></div>
-		<!-- For testing purposes -->
-		<input ng-model="input.pokemon">
-		<div>Hello {{input.pokemon}}</div>
 	</body>
 </html>
