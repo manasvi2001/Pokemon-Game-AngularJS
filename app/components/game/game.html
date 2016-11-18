@@ -1,1 +1,11 @@
-<p>Here goes the game</p>
+<!-- <pokemon poke-img="http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg" poke-name="Pikachu"></pokemon> -->
+
+<ul class="tab">
+	<li><div id="tabEasy" ng-click="changeTab('easy')">Easy</div></li>
+	<li><div id="tabMedium" ng-click="changeTab('medium')">Medium</div></li>
+	<li><div id="tabHard" ng-click="changeTab('hard')">Hard</div></li>
+</ul>
+
+<div pokemon-easy id="PokeEasy" ng-controller="PokemonEasyController" poke-img="{{pokeImg}}" poke-name1="{{pokeName1}}" poke-name2="{{pokeName2}}" poke-name3="{{pokeName3}}" poke-name4="{{pokeName4}}"></div>
+<div pokemon-medium id="PokeMedium" ng-controller="PokemonMediumController"></div>
+<div pokemon-hard id="PokeHard" ng-controller="PokemonHardController"></div>
