@@ -11,3 +11,81 @@ body {
 	width: 200px;
 	height: auto;
 }
+
+.login-container {
+	min-width: 100%;
+	text-align: center;
+}
+
+.login-box {
+	width: 30%;
+	border: 1px solid #000;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	padding: 20px 0;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.login-username {
+	width: 60%;
+}
+
+.login-password {
+	width: 60%;
+	margin: 20px 0 0 0;
+
+}
+
+.login-button {
+	width: 30%;
+	margin: 20px 0 20px 0;
+
+}
+
+.login-go-to-signup {
+	width: 90%;
+}
+
+.signup-container {
+	min-width: 100%;
+	text-align: center;
+}
+
+.signup-box {
+	width: 30%;
+	border: 1px solid #000;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	padding: 20px 0;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.signup-username {
+	width: 60%;
+}
+
+.signup-password {
+	width: 60%;
+	margin: 20px 0 0 0;
+}
+
+.signup-confirm-password {
+	width: 60%;
+	margin: 20px 0 0 0;
+}
+
+.signup-button {
+	width: 30%;
+	margin: 20px 0 20px 0;
+
+}
+
+.login-go-to-signup {
+	width: 90%;
+}
