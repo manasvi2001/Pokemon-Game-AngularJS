@@ -1,10 +1,11 @@
-<!-- Username -->
-<!-- Password -->
-<!-- Submit Bitton -->
-
-<div>
-	<input ng-model="input.username" type="text" placeholder="Username">
-	<input ng-model="input.password" type="password" placeholder="Password">
-	<button ng-click="login()">Login</button>
-	<a href="#/signup">If you dont have an account already, Signup</a>
+<div class="login-container">
+	<div class="login-box" align="center">
+		<input ng-model="input.username" type="text" placeholder="Username" class="login-username">
+		<br>
+		<input ng-model="input.password" type="password" placeholder="Password" class="login-password">
+		<br>
+		<button ng-click="login()" class="login-button">Login</button>
+		<br>
+		<a href="#/signup" class="login-go-to-signup">If you dont have an account already, Signup</a>
+	</div>
 </div>

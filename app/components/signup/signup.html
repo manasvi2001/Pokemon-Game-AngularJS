@@ -1,7 +1,13 @@
-<div>
-	<input ng-model="input.username" type="text" placeholder="Username">
-	<input ng-model="input.password" type="password" placeholder="Password">
-	<input ng-model="input.confirmPassword" type="password" placeholder="Confirm Password">
-	<button ng-click="signup()">Sign Up</button>
-	<a href="#/login">Already have an account, Login</a>
+<div class="signup-container">
+	<div class="signup-box" align="center">
+		<input ng-model="input.username" type="text" placeholder="Username" class="signup-username">
+		<br>
+		<input ng-model="input.password" type="password" placeholder="Password" class="signup-password">
+		<br>
+		<input ng-model="input.confirmPassword" type="password" placeholder="Confirm Password" class="signup-confirm-password">
+		<br>
+		<button ng-click="signup()" class="signup-button">Sign Up</button>
+		<br>
+		<a href="#/login" class="signup-go-to-signup">Already have an account, Login</a>
+	</div>
 </div>
