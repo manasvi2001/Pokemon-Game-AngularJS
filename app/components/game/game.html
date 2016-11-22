@@ -6,6 +6,10 @@
 	<li><div id="tabHard" ng-click="changeTab('hard')">Hard</div></li>
 </ul>
 
+<div class="game-score">
+	Score: {{myScore}}
+</div>
+
 <div pokemon-easy id="PokeEasy" ng-controller="PokemonEasyController" poke-img="{{pokeImg}}" poke-name1="{{pokeName1}}" poke-name2="{{pokeName2}}" poke-name3="{{pokeName3}}" poke-name4="{{pokeName4}}"></div>
 <div pokemon-medium id="PokeMedium" ng-controller="PokemonMediumController"></div>
-<div pokemon-hard id="PokeHard" ng-controller="PokemonHardController"></div>
+<div pokemon-hard id="PokeHard" ng-controller="PokemonHardController" poke-img="{{pokeImg}}"></div>

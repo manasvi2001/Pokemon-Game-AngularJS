@@ -12,11 +12,6 @@ angular.module('PokemonApp.login', ['ngRoute', 'PokemonApp.signup'])
 			password: ''
 		}
 		$scope.login = function() {
-			if(UserService.loginUser($scope.input.username, $scope.input.password)) {
-				$log.debug('Login Successful');
-				$location.path('/game');
-			} else {
-				$log.error('Login not successful. User not found or password incorrect');
-			}
+			UserService.loginUser($scope.input.username, $scope.input.password)
 		}
 	}]);

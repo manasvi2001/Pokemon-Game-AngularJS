@@ -194,3 +194,8 @@ ul.tab li div:focus, .active {
 	background-color: lightblue;
 	border: 1px solid gray;
 }
+
+.game-score {
+	float: right;
+	margin: 5px;
+}
