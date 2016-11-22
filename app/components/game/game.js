@@ -89,25 +89,17 @@ angular.module('PokemonApp.game', ['ngRoute'])
 		return {
 			restrict: 'A',
 			replace: true,
-			template: '<div>\
-			<div>\
-			<img ng-src="{{pokeImg}}">\
+			template: '<div class="easy-game-container">\
+			<div class="easy-game-image-container">\
+			<img class="easy-game-image" ng-src="{{pokeImg}}">\
 			</div>\
-			<div>\
-			<button ng-click="checkForAnswer(pokeName1)">{{pokeName1}}</button>\
-			<button ng-click="checkForAnswer(pokeName2)">{{pokeName2}}</button>\
-			<button ng-click="checkForAnswer(pokeName3)">{{pokeName3}}</button>\
-			<button ng-click="checkForAnswer(pokeName4)">{{pokeName4}}</button>\
+			<div class="easy-game-button-container">\
+			<button id="easy-game-button1" ng-click="checkForAnswer(pokeName1)">{{pokeName1}}</button>\
+			<button id="easy-game-button2" ng-click="checkForAnswer(pokeName2)">{{pokeName2}}</button>\
+			<button id="easy-game-button3" ng-click="checkForAnswer(pokeName3)">{{pokeName3}}</button>\
+			<button id="easy-game-button4" ng-click="checkForAnswer(pokeName4)">{{pokeName4}}</button>\
 			</div>\
 			</div>'
-			// ,
-			// scope: {
-			// 	pokeImg: '@',
-			// 	pokeName1: '@',
-			// 	pokeName2: '@',
-			// 	pokeName3: '@',
-			// 	pokeName4: '@'
-			// }
 		};
 	}])
 	.controller("PokemonMediumController", ['$scope', '$log', function($scope, $log) {

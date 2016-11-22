@@ -134,3 +134,63 @@ ul.tab li div:focus, .active {
 #PokeHard {
 	display: none;
 }
+
+.easy-game-container {
+	width: 100%;
+	height: 600px;
+	position: absolute;
+}
+
+.easy-game-image-container {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 100px;
+	left: 30%;
+}
+
+.easy-game-image {
+	width: 280px;
+	height: 280px;
+	margin: 10px;
+}
+
+.easy-game-button-container {
+	width: 200px;
+	height: 300px;
+	position: relative;
+	top: 100px;
+	left: calc(30% + 310px);
+}
+
+#easy-game-button1 {
+	min-width: 180px;
+	min-height: 40px;
+	margin: 18px 10px;
+	background-color: lightblue;
+	border: 1px solid gray;
+}
+
+#easy-game-button2 {
+	min-width: 180px;
+	min-height: 40px;
+	margin: 18px 10px;
+	background-color: lightblue;
+	border: 1px solid gray;
+}
+
+#easy-game-button3 {
+	min-width: 180px;
+	min-height: 40px;
+	margin: 18px 10px;
+	background-color: lightblue;
+	border: 1px solid gray;
+}
+
+#easy-game-button4 {
+	min-width: 180px;
+	min-height: 40px;
+	margin: 18px 10px;
+	background-color: lightblue;
+	border: 1px solid gray;
+}
