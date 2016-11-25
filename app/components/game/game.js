@@ -1,13 +1,20 @@
-angular.module('PokemonApp.game', ['ngRoute'])
+angular.module('PokemonApp.game', ['ngRoute', 'PokemonApp.signup'])
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/game', {
 	    templateUrl: 'app/components/game/game.html',
 	    controller: 'GameController'
 		});
 	}])
-	.controller("GameController", ['$scope', '$log', '$location', function($scope, $log, $location) {
+	.controller("GameController", ['$scope', '$log', '$location', 'UserService', function($scope, $log, $location, UserService) {
 		$log.debug('Game controller initialized');
+		$scope.username = UserService.getUsername();
 		$scope.myScore = 0;
+		UserService.fetchScore($scope.username)
+			.then(function(data) {
+				$scope.myScore = data.score;
+			}, function(error) {
+				$scope.myScore = 0;
+			});
 		$scope.$on('correct', function(event, difficulty) {
 			//increase the score
 			if(difficulty === 'easy')
@@ -16,6 +23,7 @@ angular.module('PokemonApp.game', ['ngRoute'])
 				$scope.myScore += 2;
 			else if(difficulty === 'hard')
 				$scope.myScore += 4;
+			UserService.updateScore($scope.username, $scope.myScore);
 		})
 		$scope.$on('wrong', function(event, difficulty) {
 			//decrease the score
@@ -25,6 +33,7 @@ angular.module('PokemonApp.game', ['ngRoute'])
 				$scope.myScore -= 1;
 			else if(difficulty === 'hard')
 				$scope.myScore -= 2;
+			UserService.updateScore($scope.username, $scope.myScore);
 		})
 		$scope.changeTab = function(difficulty) {
 			// change our tab

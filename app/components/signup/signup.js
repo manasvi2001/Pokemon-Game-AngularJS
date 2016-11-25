@@ -21,7 +21,14 @@ angular.module('PokemonApp.signup', ['ngRoute'])
 			}
 		}
 	}])
-	.service("UserService", ['$http', '$log', '$location', function($http, $log, $location) {
+	.service("UserService", ['$http', '$log', '$location', '$q', function($http, $log, $location, $q) {
+		var username = "";
+		var setUsername = function(Username) {
+			username = Username;
+		}
+		var getUsername = function() {
+			return username;
+		}
 		var signupUser = function(username, password) {
 			var parameter = {
 				username: username,
@@ -31,6 +38,7 @@ angular.module('PokemonApp.signup', ['ngRoute'])
 				.success(function(data) {
 					if(data.success == true) {
 						$log.debug('User succesfully created');
+						setUsername(username);
 						$location.path('/game');
 					} else {
 						$log.error("User already exists");
@@ -49,6 +57,7 @@ angular.module('PokemonApp.signup', ['ngRoute'])
 				.success(function(data) {
 					if(data.success == true) {
 						$log.debug('Login Successful');
+						setUsername(username);
 						$location.path('/game');
 					} else {
 						$log.error('Login not successful. User not found or password incorrect');
@@ -56,24 +65,32 @@ angular.module('PokemonApp.signup', ['ngRoute'])
 				})
 				.error(function(error) {
 					$log.error('Login not successful. User not found or password incorrect');
-				})
+				});
 		}
 		var fetchScore = function(username) {
 			var parameter = {
 				username: username
 			}
+			var defer = $q.defer();
+			// resolve
+			// reject
+			// notify
 			$http.get('http://localhost:9000/fetchscore', {params: parameter})
 				.success(function(data) {
 					if(data.success == true) {
 						$log.debug('Score fetch successful');
+						defer.resolve(data);
 						// return the score.
 					} else {
 						$log.error('Login not successful. User not found or password incorrect');
+						defer.reject(data);
 					}
 				})
 				.error(function(error) {
 					$log.error('Login not successful. User not found or password incorrect');
+					defer.reject(error);
 				})
+			return defer.promise;
 		}
 		var updateScore = function(username, score) {
 			var parameter = {
@@ -94,6 +111,10 @@ angular.module('PokemonApp.signup', ['ngRoute'])
 		}
 		return {
 			signupUser: signupUser,
-			loginUser: loginUser
+			loginUser: loginUser,
+			fetchScore: fetchScore,
+			updateScore: updateScore,
+			setUsername: setUsername,
+			getUsername: getUsername
 		};
 	}]);
