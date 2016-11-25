@@ -164,7 +164,7 @@ angular.module('PokemonApp.game', ['ngRoute'])
 			<img class="hard-game-image" ng-src="{{pokeImg}}">\
 			</div>\
 			<div class="hard-game-input-container">\
-			<input ng-model="pokeAnswer" placeholder="Input you answer" ng-keydown="$event.which == 13 && checkForAnswer(pokeAnswer)">\
+			<input class="hard-game-input" ng-model="pokeAnswer" placeholder="Input you answer" ng-keydown="$event.which == 13 && checkForAnswer(pokeAnswer)">\
 			</div>\
 			</div>',
 			link: function(scope, iElement, iAttr, controller) {

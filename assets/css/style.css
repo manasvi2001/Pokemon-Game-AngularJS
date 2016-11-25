@@ -199,3 +199,41 @@ ul.tab li div:focus, .active {
 	float: right;
 	margin: 5px;
 }
+
+.hard-game-container {
+	width: 100%;
+	height: 600px;
+	position: absolute;
+}
+
+.hard-game-image-container {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 100px;
+	left: 40%;
+}
+
+.hard-game-image {
+	width: 280px;
+	height: 280px;
+	margin: 10px;
+}
+
+.hard-game-input-container {
+	position: absolute;
+	top: 410px;
+	left: 40%;
+}
+
+.hard-game-input {
+	width: 300px;
+	padding: 10px;
+	border: 1px solid #dcdcdc;
+	transition: box-shadow 0.3s, border 0.3s;
+}
+
+.hard-game-input:focus {
+	border: 1px solid #707070;
+	box-shadow: 0 0 5px 1px #969696;
+}
