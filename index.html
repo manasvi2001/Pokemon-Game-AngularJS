@@ -4,17 +4,20 @@
 		<meta charset="utf-8">
 		<title>My Pokemon App</title>
 		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.css">
 		<script src="assets/bower_components/angular/angular.js"></script>
 		<script src="assets/bower_components/angular-route/angular-route.js"></script>
+		<script src="assets/bower_components/angular-animate/angular-animate.js"></script>
 		<script type="text/javascript" src="app/app.js"></script>
 		<script type="text/javascript" src="app/components/login/login.js"></script>
 		<script type="text/javascript" src="app/components/signup/signup.js"></script>
 		<script type="text/javascript" src="app/components/game/game.js"></script>
+		<script type="text/javascript" src="app/components/profile/profile.js"></script>
 	</head>
 	<body>
 		<header class="header-bar" align="center">
 	    <img class="header-image" src="assets/img/pokemon.png">
 		</header>
-		<div ng-view></div>
+		<div class="all-views" ng-view></div>
 	</body>
 </html>

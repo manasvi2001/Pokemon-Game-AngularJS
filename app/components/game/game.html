@@ -6,8 +6,12 @@
 	<li><div id="tabHard" ng-click="changeTab('hard')">Hard</div></li>
 </ul>
 
+<div class="profile-tab" ng-click="goToProfilePage()">
+	<img ng-src="assets/img/profile_placeholder.png">
+</div>
+
 <div class="game-score">
-	Score: {{myScore}}
+	Score: {{userdata.score}}
 </div>
 
 <div pokemon-easy id="PokeEasy" ng-controller="PokemonEasyController" poke-img="{{pokeImg}}" poke-name1="{{pokeName1}}" poke-name2="{{pokeName2}}" poke-name3="{{pokeName3}}" poke-name4="{{pokeName4}}"></div>

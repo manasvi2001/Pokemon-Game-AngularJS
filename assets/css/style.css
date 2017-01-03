@@ -4,6 +4,7 @@ body {
 
 .header-bar {
 	width: 100%;
+	height: 90px;
 	background-color: blue;
 }
 
@@ -243,4 +244,130 @@ ul.tab li div:focus, .active {
 	position: relative;
 	top: 0;
 	left: 47%;
+}
+
+.profile-tab {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	width: 70px;
+	height: 70px;
+	border-radius: 70px;
+	border: 2px solid darkblue;
+}
+
+.profile-tab img {
+	width: 70px;
+	height: 70px;
+	border-radius: 70px;
+}
+
+.profile-container {
+	min-width: 100%;
+	max-width: 100%;
+}
+
+.user-info-container {
+	display: inline-block;
+	min-width: 25%;
+	max-width: 25%;
+	float: left;
+	margin-top: 100px;
+}
+
+.leaderboard-container {
+	display: inline-block;
+	min-width: 70%;
+	max-width: 70%;
+	float: right;
+	margin-top: 100px;
+}
+
+.user-info-dp {
+	width: 100px;
+	height: 100px;
+}
+
+.user-info-dp img {
+	width: 100%;
+	height: auto;
+}
+
+.user-info-name {
+	font-size: 26px;
+}
+
+.user-info-score {
+	font-size: 24px;
+}
+
+.user-info-rank {
+	font-size: 24px;
+}
+
+.leaderboard-title {
+	font-size: 30px;
+	width: 100%;
+}
+
+.leaderboard-friends {
+	display: inline-block;
+	min-width: 45%;
+	max-width: 45%;
+	font-size: 25px;
+	float: left;
+}
+
+.leaderboard-friends i.icon.ion-minus-circled {
+	color: red;
+}
+
+.leaderboard-world {
+	display: inline-block;
+	min-width: 45%;
+	max-width: 45%;
+	font-size: 25px;
+	float: right;
+}
+
+.leaderboard-world i.icon.ion-plus-circled {
+	color: green;
+}
+
+/*Animation & transitions*/
+.user-list.ng-enter,
+.user-list.ng-leave {
+	transition: 400ms ease all;
+	position: relative;
+	display: block;
+}
+
+.user-list.ng-enter.ng-enter-active,
+.user-list.ng-leave {
+	opacity: 1;
+	top: 0;
+	height: auto;
+}
+
+.user-list.ng-leave.ng-leave-active,
+.user-list.ng-enter {
+	opacity: 0;
+	top: -40px;
+	height: 0;
+}
+
+.all-views.ng-enter,
+.all-views.ng-leave {
+	transition: 1000ms linear all;
+	display: block;
+}
+
+.all-views.ng-enter.ng-enter-active,
+.all-views.ng-leave {
+	opacity: 1;
+}
+
+.all-views.ng-leave.ng-leave-active,
+.all-views.ng-enter {
+	opacity: 0;
 }

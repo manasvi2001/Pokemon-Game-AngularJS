@@ -74,15 +74,28 @@ app.get('/login', function(req, res) {
     }
 })
 
-// fetch score
-app.get('/fetchscore', function(req, res) {
+// fetch userData
+app.get('/fetchuser', function(req, res) {
     var username = req.query.username || "";
     if(username) {
         User.findOne({username: username}, function(err, userData) {
             if(!userData) {
                 res.json({success: false, message: "No Such User exists"});
             }
-            res.json({success: true, message: "Score Fetching Successful", score: userData.score});
+            var myScore = userData.score;
+            var myFriends = userData.friends || [];
+            User.find({}, function(err, users) {
+                if(!users) {
+                    res.json({success: false, message: "Error in DB. No User exists"});
+                }
+                var myRank = 1;
+                for(var i=0;i<users.length;i++) {
+                    if(users[i].score > myScore) {
+                        myRank++;
+                    }
+                }
+                res.json({success: true, message: "Score Fetching Successful", score: myScore, friends: myFriends, rank: myRank});
+            })
         })
     }
 })
@@ -101,6 +114,62 @@ app.post('/updatescore', function(req, res) {
                 console.error(err);
             })
             res.json({success: true, message: "Score Updated"});
+        })
+    }
+})
+
+// fetch world data
+app.get('/fetchworld', function(req, res) {
+    User.find({}, function(err, users) {
+        if(!users) {
+            res.json({success: false, message: "No users exists"});
+        }
+        var allUsers = [];
+        for(var i=0;i<users.length;i++) {
+            allUsers.push({username: users[i].username, score: users[i].score})
+        }
+        res.json({success: true, message: "Fetch world data successful", users: allUsers});
+    })
+})
+
+// add friends
+app.post('/addfriend', function(req, res) {
+    var username = req.body.username || "";
+    var friendUsername = req.body.friendUsername || "";
+    var friendScore = req.body.friendScore || "";
+    if(username) {
+        User.findOne({username: username}, function(err, userData) {
+            if(!userData) {
+                res.json({success: false, message: "No Such User exists"});
+            }
+            userData.friends.push({username: friendUsername, score: friendScore})
+            userData.save(function(err) {
+                console.error(err);
+            })
+            res.json({success: true, message: "Friend Added"});
+        })
+    }
+})
+
+// remove friends
+app.post('/removefriend', function(req, res) {
+    var username = req.body.username || "";
+    var friendUsername = req.body.friendUsername || "";
+    if(username) {
+        User.findOne({username: username}, function(err, userData) {
+            if(!userData) {
+                res.json({success: false, message: "No Such User exists"});
+            }
+            for(var i=0;i<userData.friends.length;i++) {
+                if(userData.friends[i].username == friendUsername) {
+                    userData.friends.splice(i,1);
+                    userData.save(function(err) {
+                        console.error(err);
+                    })
+                    res.json({success: true, message: "Friend Removed"});
+                    break;
+                }
+            }
         })
     }
 })

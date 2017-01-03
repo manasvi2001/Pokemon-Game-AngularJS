@@ -1,4 +1,4 @@
-angular.module('PokemonApp.login', ['ngRoute', 'PokemonApp.signup'])
+angular.module('PokemonApp.login', ['ngRoute'])
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/login', {
 	    templateUrl: 'app/components/login/login.html',
