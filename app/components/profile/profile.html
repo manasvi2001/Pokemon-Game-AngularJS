@@ -1,0 +1,40 @@
+<div class="profile-tab" ng-click="goToGamePage()">
+	<img ng-src="assets/img/profile_placeholder.png">
+</div>
+
+<div class="profile-container">
+	<div class="user-info-container" align="center">
+		<div class="user-info-dp">
+			<img ng-src="assets/img/profile_placeholder.png">
+		</div>
+		<div class="user-info-name">
+			 {{username}}
+		</div>
+		<div class="user-info-score">
+			Score : {{myScore}}
+		</div>
+		<div class="user-info-rank">
+			Rank : {{myRank}}
+		</div>
+		<button ng-click="logout()">
+			Logout
+		</button>
+	</div>
+	<div class="leaderboard-container" align="center">
+		<div class="leaderboard-title">
+			Leaderboard <span ng-click="toggleEdit()"><i class="icon ion-edit"></i></span> <span ng-click="forceRefresh()"><i class="icon ion-loop"></i></span>
+		</div>
+		<div class="leaderboard-friends">
+			Friends
+			<div class="user-list" ng-repeat="user in Friends | orderBy: '-score'">
+				{{user.username}} {{user.score}} <span ng-click="removeFriend(username, user.username)" ng-show="canEdit"><i class="icon ion-minus-circled"></i></span>
+			</div>
+		</div>
+		<div class="leaderboard-world">
+			World
+			<div class="user-list" ng-repeat="user in worldUsers | orderBy: '-score'">
+				{{user.username}} {{user.score}} <span ng-click="addFriend(username, user.username, user.score)" ng-show="canEdit"><i class="icon ion-plus-circled"></i></span>
+			</div>
+		</div>
+	</div>
+</div>
